@@ -1,7 +1,7 @@
 ---
 layout: page
-title: README
-permalink: /readme/
+title: Photo API
+permalink: /photo-api/
 ---
 
 # Submitting marketplace content to Arbitrum
