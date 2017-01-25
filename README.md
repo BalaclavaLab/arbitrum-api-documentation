@@ -1,3 +1,9 @@
+---
+layout: page
+title: README
+permalink: /readme/
+---
+
 # Submitting marketplace content to Arbitrum
 
 Webhook: ```POST https://gateway.arbitrum.com/v1/content/marketplace```
