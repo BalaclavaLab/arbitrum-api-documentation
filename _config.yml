@@ -14,6 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Arbitrum API documentation
+name : Arbitrum
 email: hello@arbitrum.com
 description: > # this means to ignore newlines until "baseurl:"
   Image and video content moderation with transparent and detailed reporting
@@ -23,9 +24,7 @@ github_username:  arbitrum
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-cayman
-gems:
-  - jekyll-feed
+theme: minima
 exclude:
   - Gemfile
   - Gemfile.lock

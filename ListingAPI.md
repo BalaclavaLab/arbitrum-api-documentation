@@ -4,9 +4,9 @@ title: Listing API
 permalink: /listing-api/
 ---
 
-# Submitting marketplace content to Arbitrum
+# Submitting listing content to Arbitrum
 
-Webhook: ```POST https://gateway.arbitrum.com/v1/content/marketplace```
+Webhook: ```POST https://gateway.arbitrum.com/v1/content/listing```
 
 Parameters:
 * Header: `X-Auth-Token` -- provided by Arbitrum	
@@ -23,7 +23,6 @@ Parameters:
   "price": "£99.99"
   "likes_count": 22,
   "user_id": "client.user.id",
-  "user_avatar_url": "client.user.avatar.url",
   "created_time": 1484572111142
 }
 ```
@@ -37,7 +36,10 @@ Webhook: ```POST https://client.webhook.url``` -- provided by client
 Parameters:
 * Header `X-Auth-Token` -- provided by client
 * Body:
-```{
+```
+{
   "original_id": "client.content.id",
   "moderation_result": "rejected"
-}``` moderation result can be: `rejected` or `approved`
+}
+```
+* moderation result can be: `rejected` or `approved`
