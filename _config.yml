@@ -19,11 +19,20 @@ email: hello@arbitrum.com
 description: > # this means to ignore newlines until "baseurl:"
   Image and video content moderation with transparent and detailed reporting
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  arbitrum
+url: http://www.arbitrum.com
+#github_username:  arbitrum
+#github_username:  arbitrum
 
 # Build settings
 markdown: kramdown
+
+# https://www.hacksparrow.com/how-to-disable-github-pages-default-rouge-code-highlighter.html
+#karmdown:
+#  input: GFM
+#  hard_wrap: false
+#  syntax_highlighter_opts:
+#    disable: true
+
 theme: minima
 exclude:
   - Gemfile
