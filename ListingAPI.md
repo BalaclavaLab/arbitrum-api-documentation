@@ -34,7 +34,6 @@ Example listing JSON:
   "description": "Marketplace content description",
   "location": "United Kingdom",
   "price": "£99.99",
-  "likes_count": 22,
   "user_id": "client.user.id",
   "created_time": 1484572111142
 }
@@ -48,15 +47,15 @@ Example listing JSON:
 | `location` | Location |
 | `price` | Price  |
 | `user_id` | Client internal user id |
-| `created_time` | Listing creation time |
+| `created_time` | Listing creation time in milliseconds |
 
 After submission, listing is processed by Arbitrum:
 
-1. all incoming photos are added into processing queue
-2. photos are downloaded and uploaded to Arbitrum storage
+1. all incoming listings are added into processing queue
+2. listing photos are downloaded and uploaded to Arbitrum storage
 3. automatic-moderation step (algorithms)
 4. manual-moderation step (humans)
-5. processing moderation result
+5. processing moderation result (collecting client statistics, creating historical record)
 6. sending response to client
 
 ### Receiving moderation result from Arbitrum
