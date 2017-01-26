@@ -11,7 +11,7 @@ Webhook: ```POST https://gateway.arbitrum.com/v1/content/listing```
 Parameters:
 * Header: `X-Auth-Token` -- provided by Arbitrum	
 * Body:
-```json
+~~~json
 {
   "original_id": "client.content.id",
   "photos": [
@@ -25,7 +25,7 @@ Parameters:
   "user_id": "client.user.id",
   "created_time": 1484572111142
 }
-```
+~~~
 
 Response: ```HTTP 200```
 
@@ -36,10 +36,11 @@ Webhook: ```POST https://client.webhook.url``` -- provided by client
 Parameters:
 * Header `X-Auth-Token` -- provided by client
 * Body:
-```json
+~~~json
 {
   "original_id": "client.content.id",
   "moderation_result": "rejected"
 }
-```
+~~~
+
 * moderation result can be: `rejected` or `approved`
