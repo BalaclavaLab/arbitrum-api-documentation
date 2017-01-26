@@ -32,7 +32,7 @@ karmdown:
   syntax_highlighter_opts:
     disable: true
 
-theme: minima
+theme: jekyll-theme-cayman
 exclude:
   - Gemfile
   - Gemfile.lock
