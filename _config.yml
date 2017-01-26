@@ -22,6 +22,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: http://www.arbitrum.com
 #github_username:  arbitrum
 #github_username:  arbitrum
+google_analytics_key:
+permalink: pretty
 
 # Build settings
 markdown: kramdown
@@ -33,7 +35,39 @@ markdown: kramdown
 #  syntax_highlighter_opts:
 #    disable: true
 
-theme: minima
+#theme: minima
+
+collections:
+  documentation:
+    title: Documentation
+    position: 1
+  method:
+    title: Methods
+    position: 2
+  callback:
+    title: Callbacks
+    position: 3
+
+gems:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
 exclude:
+  - README.md
+  - README.md.save
+  - LICENCE
   - Gemfile
   - Gemfile.lock
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: default
+
+types:
+  - get
+  - put
+  - delete
+  - post
