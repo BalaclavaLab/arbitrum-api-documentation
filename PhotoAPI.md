@@ -4,33 +4,65 @@ title: Photo API
 permalink: /photo-api/
 ---
 
-# Submitting photo content to Arbitrum
+# Overview
 
-Webhook: ```POST https://gateway.arbitrum.com/v1/content/photo```
+Arbitrum Listing API is very simple and is based on HTTP webhooks:
 
-Parameters:
-* Header: `X-Auth-Token` -- provided by Arbitrum	
-* Body:
-```
+* An Arbitrum webhook that is used to submit photo for moderation
+* a client webhook that is used to receive moderation result when photo was moderated in Arbitrum
+
+Authorization is done by appending authorization token in HTTP header for each request.
+
+## Webhooks
+
+### Submitting photos for moderation in Arbitrum
+
+In order to submit photo for moderation:
+
+* make request ```POST https://gateway.arbitrum.com/v1/content/photo```
+* add `X-Auth-Token` header
+* pass JSON object in the request body
+
+Example JSON:
+{% highlight json %}
 {
-  "original_id": "client.content.id",
-  "url": "client.photo.url"
+  "original_id": "client.photo.id",
+  "url": "http://client.photo.id1.url"
 }
-```
+{% endhighlight %}
 
-Response: ```HTTP 200```
+| Field  | Description |
+| ------------- | ------------- |
+| `original_id` | Client internal photo id |
+| `url` | Client photo url |
 
-# Getting moderation result from Arbitrum
+After submission, photo is processed by Arbitrum:
 
-Webhook: ```POST https://client.webhook.url``` -- provided by client
+1. all incoming photos are added into processing queue
+2. photo is downloaded and uploaded to Arbitrum storage
+3. automatic-moderation step (algorithms)
+4. manual-moderation step (humans)
+5. processing moderation result (collecting client statistics, creating historical record)
+6. sending response to client
 
-Parameters:
-* Header `X-Auth-Token` -- provided by client
-* Body:
-```
+### Receiving moderation result from Arbitrum
+
+After moderation is complete:
+
+* Arbitrum makes request ```POST https://client.url/webhook```
+* adds `X-Auth-Token` header
+* passes moderation result JSON object in the request body
+
+{% highlight json %}
 {
   "original_id": "client.content.id",
   "moderation_result": "rejected"
 }
-```
-* moderation result can be: `rejected` or `approved`
+{% endhighlight %}
+
+| Field  | Description |
+| ------------- | ------------- |
+| `original_id` | Client internal photo id |
+| `moderation_result` | `rejected` or `approved` |
+
+It is client duty to setup and configure HTTP server that accepts and handles feedback.

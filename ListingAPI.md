@@ -62,7 +62,7 @@ After submission, listing is processed by Arbitrum:
 
 After moderation is complete:
 
-* Arbitrum makes request ```POST https://client.curl/webhook```
+* Arbitrum makes request ```POST https://client.url/webhook```
 * adds `X-Auth-Token` header
 * passes moderation result JSON object in the request body
 
