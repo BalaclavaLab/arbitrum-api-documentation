@@ -4,14 +4,27 @@ title: Listing API
 permalink: /listing-api/
 ---
 
-# Submitting listing content to Arbitrum
+# Overview
 
-Webhook: ```POST https://gateway.arbitrum.com/v1/content/listing```
+Arbitrum Listing API is very simple and is based on HTTP webhooks:
 
-Parameters:
-* Header: `X-Auth-Token` -- provided by Arbitrum	
-* Body:
-~~~json
+* An Arbitrum webhook that is used to submit listing for moderation
+* a client webhook that is used to receive moderation result when listing was moderated in Arbitrum
+
+Authorization is done by appending authorization token in HTTP header for each request.
+
+## Webhooks
+
+### Submitting listing for moderation in Arbitrum
+
+In order to submit listing for moderation:
+
+* make request ```POST https://gateway.arbitrum.com/v1/content/listing```
+* add `X-Auth-Token` header
+* pass listing JSON object in the request body
+
+Example listing JSON:
+{% highlight json %}
 {
   "original_id": "client.content.id",
   "photos": [
@@ -25,22 +38,45 @@ Parameters:
   "user_id": "client.user.id",
   "created_time": 1484572111142
 }
-~~~
+{% endhighlight %}
 
-Response: ```HTTP 200```
+| Field  | Description |
+| ------------- | ------------- |
+| `original_id` | Client internal listing id |
+| `photos` | Collection of photos, each having client internal photo id and downloadable url |
+| `description` | Listing description |
+| `location` | Location |
+| `price` | Price  |
+| `user_id` | Client internal user id |
+| `created_time` | Listing creation time |
 
-# Getting moderation result from Arbitrum
+After submission, listing is processed by Arbitrum:
 
-Webhook: ```POST https://client.webhook.url``` -- provided by client
+1. all incoming photos are added into processing queue
+2. photos are downloaded and uploaded to Arbitrum storage
+3. automatic-moderation step (algorithms)
+4. manual-moderation step (humans)
+5. processing moderation result
+6. sending response to client
 
-Parameters:
-* Header `X-Auth-Token` -- provided by client
-* Body:
-~~~json
+### Receiving moderation result from Arbitrum
+
+After moderation is complete:
+
+* Arbitrum makes request ```POST https://client.curl/webhook```
+* adds `X-Auth-Token` header
+* passes moderation result JSON object in the request body
+
+{% highlight json %}
 {
   "original_id": "client.content.id",
   "moderation_result": "rejected"
 }
-~~~
+{% endhighlight %}
 
-* moderation result can be: `rejected` or `approved`
+| Field  | Description |
+| ------------- | ------------- |
+| `original_id` | Client internal listing id |
+| `moderation_result` | `rejected` or `approved` |
+
+It is client duty to setup and configure HTTP server that accepts and handles feedback.
