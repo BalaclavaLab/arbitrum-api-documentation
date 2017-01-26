@@ -36,6 +36,17 @@ Example JSON:
 | `original_id` | Client internal photo id |
 | `url` | Client photo url |
 
+On successful requests Arbitrum server responds with HTTP 200 response code.
+
+Possible response codes:
+
+| Code  | Description |
+| ------------- | ------------- |
+| `200` | Success |
+| `400` | Invalid `X-Auth-Token` |
+| `404` | Requested url not found |
+| `500` | Arbitrum internal server error |
+
 After submission, photo is processed by Arbitrum:
 
 1. all incoming photos are added into processing queue
@@ -44,8 +55,6 @@ After submission, photo is processed by Arbitrum:
 4. manual-moderation step (humans)
 5. processing moderation result (collecting client statistics, creating historical record)
 6. sending response to client
-
-On successful requests Arbitrum server responds with HTTP 200 response code.
 
 ### Receiving moderation result from Arbitrum
 

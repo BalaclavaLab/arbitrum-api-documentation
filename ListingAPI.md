@@ -51,6 +51,15 @@ Example listing JSON:
 
 On successful requests Arbitrum server responds with HTTP 200 response code.
 
+Possible response codes:
+
+| Code  | Description |
+| ------------- | ------------- |
+| `200` | Success |
+| `400` | Invalid `X-Auth-Token` |
+| `404` | Requested url not found |
+| `500` | Arbitrum internal server error |
+
 After submission, listing is processed by Arbitrum:
 
 1. all incoming listings are added into processing queue
