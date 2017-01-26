@@ -49,7 +49,7 @@ Example listing JSON:
 | `user_id` | Client internal user id |
 | `created_time` | Listing creation time in milliseconds |
 
-On successful requests Arbitrum server responds with HTTP 200 response code.
+On successful requests Arbitrum server responds with HTTP 200 response code. Possible response codes:
 
 Possible response codes:
 

@@ -36,9 +36,7 @@ Example JSON:
 | `original_id` | Client internal photo id |
 | `url` | Client photo url |
 
-On successful requests Arbitrum server responds with HTTP 200 response code.
-
-Possible response codes:
+On successful requests Arbitrum server responds with HTTP 200 response code. Possible response codes:
 
 | Code  | Description |
 | ------------- | ------------- |
