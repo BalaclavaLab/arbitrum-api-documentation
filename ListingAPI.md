@@ -11,7 +11,7 @@ Webhook: ```POST https://gateway.arbitrum.com/v1/content/listing```
 Parameters:
 * Header: `X-Auth-Token` -- provided by Arbitrum	
 * Body:
-```
+```json
 {
   "original_id": "client.content.id",
   "photos": [
@@ -20,7 +20,7 @@ Parameters:
   ],
   "description": "Marketplace content description",
   "location": "United Kingdom",
-  "price": "£99.99"
+  "price": "£99.99",
   "likes_count": 22,
   "user_id": "client.user.id",
   "created_time": 1484572111142
@@ -36,7 +36,7 @@ Webhook: ```POST https://client.webhook.url``` -- provided by client
 Parameters:
 * Header `X-Auth-Token` -- provided by client
 * Body:
-```
+```json
 {
   "original_id": "client.content.id",
   "moderation_result": "rejected"

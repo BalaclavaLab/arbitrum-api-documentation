@@ -24,6 +24,14 @@ github_username:  arbitrum
 
 # Build settings
 markdown: kramdown
+
+# https://www.hacksparrow.com/how-to-disable-github-pages-default-rouge-code-highlighter.html
+#karmdown:
+#  input: GFM
+#  hard_wrap: false
+#  syntax_highlighter_opts:
+#    disable: true
+
 theme: minima
 exclude:
   - Gemfile
