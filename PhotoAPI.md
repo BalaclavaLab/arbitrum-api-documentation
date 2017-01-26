@@ -45,6 +45,8 @@ After submission, photo is processed by Arbitrum:
 5. processing moderation result (collecting client statistics, creating historical record)
 6. sending response to client
 
+On successful requests Arbitrum server responds with HTTP 200 response code.
+
 ### Receiving moderation result from Arbitrum
 
 After moderation is complete:

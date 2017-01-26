@@ -49,6 +49,8 @@ Example listing JSON:
 | `user_id` | Client internal user id |
 | `created_time` | Listing creation time in milliseconds |
 
+On successful requests Arbitrum server responds with HTTP 200 response code.
+
 After submission, listing is processed by Arbitrum:
 
 1. all incoming listings are added into processing queue
