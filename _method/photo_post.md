@@ -1,5 +1,5 @@
 ---
-title: /content/photo
+title: POST /content/photo
 position: 2
 type: post
 description: Submit photo to Arbitrum server
@@ -46,13 +46,13 @@ X-Auth-Token: ARBITRUM_AUTH_TOKEN
 
 After submission, photo is processed by Arbitrum:
 
-1. all incoming photos are added into processing queue
-2. photo is downloaded and uploaded to Arbitrum storage
-3. automatic-moderation step (algorithms)
-4. manual-moderation step (humans)
-5. processing moderation result (collecting client statistics, creating historical record)
-6. sending response to client via callback
+1. all incoming photos are added into processing queue;
+2. photo is downloaded and uploaded to Arbitrum storage;
+3. automatic moderation step (algorithms);
+4. manual moderation step (humans);
+5. processing moderation result (collecting client statistics, creating historical record);
+6. sending response to client via [callback](/#/callback/moderation_result).
 
-It is client's duty to setup and configure HTTP server that accepts and handles
-the callback.
+It is client's responsibility to setup and configure their HTTP server that accepts and
+handles the callback.
 {: .info }

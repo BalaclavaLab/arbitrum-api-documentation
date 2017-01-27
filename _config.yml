@@ -19,7 +19,7 @@ email: hello@arbitrum.com
 description: > # this means to ignore newlines until "baseurl:"
   Image and video content moderation with transparent and detailed reporting
 baseurl: "" # the subpath of your site, e.g. /blog
-url: http://www.arbitrum.com
+url: http://apidoc.arbitrum.com
 #github_username:  arbitrum
 #github_username:  arbitrum
 google_analytics_key:
@@ -65,6 +65,25 @@ defaults:
       path: ""
     values:
       layout: default
+  -
+    scope:
+      path: _documentation
+    values: &anchor
+      title:
+      description:
+      type:
+      position:
+      right_code:
+  -
+    scope:
+      path: _method
+    values:
+      <<: *anchor
+  -
+    scope:
+      path: _callback
+    values:
+      <<: *anchor
 
 types:
   - get

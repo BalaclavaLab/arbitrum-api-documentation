@@ -7,7 +7,6 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
     {% seo %}
 
     {% if jekyll.environment == 'production' %}
@@ -42,6 +41,7 @@
     <div class="main">
       {{ content }}
     </div>
+    <script src="/js/main.js"></script>
     <script>
       document.getElementById("open-nav").addEventListener("click", function () {
         document.body.classList.toggle("nav-open");

@@ -1,7 +1,53 @@
-jQuery(function() {
+;(function($) {
+
+  function getClosestHeader() {
+    // quick solution for current use case;
+    // if the sidebar contained cross-page links, then we'd have to modify
+    // this logic to always look up link IDs on the current page.
+    if (document.location.pathname !== "/") {
+      return null;
+    }
+
+    var $links = $('.sidebar a'),
+        top = window.scrollY,
+        $last = $links.first();
+
+    if (top < 300) {
+      return $last;
+    }
+
+    if (top + window.innerHeight >= $(".main").height()) {
+      return $links.last();
+    }
+
+    for (var i = 0; i < $links.length; i++) {
+      var $link = $links.eq(i),
+          href = $link.attr("href");
+
+      if (isInlineHref(href)) {
+        var $anchor = $('a[id="'+href.slice(2)+'"]');
+
+        if ($anchor.length === 1) {
+          var offset = $anchor.offset();
+
+          if (top < offset.top - 300) {
+            return $last;
+          }
+
+          $last = $link;
+        }
+      }
+    }
+    return $last;
+  }
+
+  function isInlineHref(href) {
+    return href !== undefined && href.indexOf('/#') === 0 && href.length > 2;
+  }
+
   var $sidebar = $('#sidebar'),
-    $nav = $('.nav'),
-    $main = $('.main');
+      $nav = $('.nav'),
+      $main = $('.main');
 
   var found = true;
 
@@ -48,8 +94,9 @@ jQuery(function() {
   }
 
   var href = $('.sidebar a').first().attr("href");
+  var initialTitle = document.title;
 
-  if (href !== undefined && href.charAt(0) === "#") {
+  if (isInlineHref(href)) {
     setActiveSidebarLink();
 
     $(window).on("scroll", function(evt) {
@@ -59,43 +106,10 @@ jQuery(function() {
 
   function setActiveSidebarLink() {
       $('.sidebar a').removeClass('active');
-        var $closest = getClosestHeader();
+      var $closest = getClosestHeader();
+      if ($closest) {
         $closest.addClass('active');
-        document.title = $closest.text();
-
-  }
-});
-
-function getClosestHeader() {
-  var $links = $('.sidebar a'),
-  top = window.scrollY,
-  $last = $links.first();
-
-  if (top < 300) {
-    return $last;
-  }
-
-  if (top + window.innerHeight >= $(".main").height()) {
-    return $links.last();
-  }
-
-  for (var i = 0; i < $links.length; i++) {
-    var $link = $links.eq(i),
-    href = $link.attr("href");
-
-    if (href !== undefined && href.charAt(0) === "#" && href.length > 1) {
-      var $anchor = $(href);
-
-      if ($anchor.length > 0) {
-        var offset = $anchor.offset();
-
-        if (top < offset.top - 300) {
-          return $last;
-        }
-
-        $last = $link;
+        document.title = $closest.text() + ' - ' + initialTitle;
       }
-    }
   }
-  return $last;
-}
+})(jQuery);
