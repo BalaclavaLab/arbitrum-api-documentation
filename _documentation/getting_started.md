@@ -9,7 +9,7 @@ In this document you will find descriptions of concepts, conventions and approac
 used to integrate with Arbitrum moderation service, as well as the detailed list of
 all supported API calls with request and response samples.
 
-Arbitrum API is based on HTTP and has only two requirements to use:
+Arbitrum API is based on HTTPS and has only two requirements to use:
 
 * client makes a call to an Arbitrum endpoint to submit items for moderation
 * Arbitrum server sends the moderation result to a webhook provided by the client

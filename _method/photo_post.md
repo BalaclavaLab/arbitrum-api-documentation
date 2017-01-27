@@ -42,7 +42,7 @@ X-Auth-Token: ARBITRUM_AUTH_TOKEN
   "url": "http://client.photo.id1.url"
 }
 ~~~
-{: title="HTTP" }
+{: title="HTTPS" }
 
 After submission, photo is processed by Arbitrum:
 

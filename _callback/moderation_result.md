@@ -22,7 +22,7 @@ X-Auth-Token: CLIENT_AUTH_TOKEN
   "moderation_result": "rejected"
 }
 ~~~
-{: title="HTTP" }
+{: title="HTTP(S)" }
 
 The server expects `HTTP 2xx` response without any body. Any other response code
 will be treated as an error.

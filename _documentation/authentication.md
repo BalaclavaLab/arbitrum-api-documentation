@@ -2,6 +2,16 @@
 title: Authentication
 position: 2
 right_code: |
+  ~~~ http
+  POST /v1/content/listing HTTP/1.1
+  Host: gateway.arbitrum.com
+  Content-Type: application/json
+  X-Auth-Token: ARBITRUM_AUTH_TOKEN
+
+  {...}
+  ~~~
+  {: title="HTTPS" }
+
   ~~~ bash
   curl -X POST -d '{...}'
     -H 'X-Auth-Token: ARBITRUM_AUTH_TOKEN'
@@ -9,6 +19,14 @@ right_code: |
     'https://gateway.arbitrum.com/v1/content/listing'
   ~~~
   {: title="Curl" }
+
+  ~~~ ruby
+  require 'net/https'
+
+  uri = URI('https://gateway.arbitrum.com/v1/content/listing')
+  Net::HTTP.post uri, '{...}', 'Content-Type' => 'application/json'
+  ~~~
+  {: title="Ruby" }
 ---
 
 You need to be authenticated for all API requests.

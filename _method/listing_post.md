@@ -65,7 +65,7 @@ X-Auth-Token: ARBITRUM_AUTH_TOKEN
   "created_time": 1484572111142
 }
 ~~~
-{: title="HTTP" }
+{: title="HTTPS" }
 
 After submission, listing is processed by Arbitrum:
 
