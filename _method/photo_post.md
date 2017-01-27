@@ -2,16 +2,19 @@
 title: /content/photo
 position: 2
 type: post
-description: Submit image to Arbitrum server
+description: Submit photo to Arbitrum server
 right_code: |
   ~~~ http
   HTTP/1.1 200 OK
   ~~~
   {: title="Response" }
 
-  ~~~ json
+  ~~~ http
+  HTTP/1.1 400 Bad Request
+  Content-Type: application/json
+
   {
-    "error": "Your moderation queue limit is exceeded"
+    "error": "Insufficient parameters"
   }
   ~~~
   {: title="Error" }

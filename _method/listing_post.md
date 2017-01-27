@@ -9,9 +9,12 @@ right_code: |
   ~~~
   {: title="Response" }
 
-  ~~~ json
+  ~~~ http
+  HTTP/1.1 403 Forbidden
+  Content-Type: application/json
+
   {
-    "error": "Your moderation queue limit is exceeded"
+    "error": "Authentication token is invalid"
   }
   ~~~
   {: title="Error" }
