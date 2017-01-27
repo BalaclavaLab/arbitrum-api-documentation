@@ -16,7 +16,11 @@ html {
 }
 
 @media (max-width: $mobile-break) {
-	.sidebar, header > form {
+	body, header {
+	  min-width: 480px;
+	}
+
+	.sidebar, header > form, header > .copyright {
 		display: none;
 	}
 
@@ -29,7 +33,7 @@ html {
 	}
 
 	body .main {
-		margin: 45px 0 0 0;
+		margin: 60px 0 0 0;
 	}
 }
 
@@ -44,7 +48,8 @@ body {
 		overflow: hidden;
 
 		.sidebar,
-		header > form {
+		header > form,
+		header > .copyright {
 			display: block;
 		}
 
@@ -134,6 +139,7 @@ dl dt {
 	font-weight: bold;
 	position: relative;
 	top: 20px;
+	word-wrap: break-word;
 }
 
 dl dd {
@@ -250,10 +256,6 @@ h3 .endpoint {
 	.description {
 		color: #aaa;
 		margin-top: -11px;
-	}
-
-	@media (max-width: $mobile-break) {
-		margin: 0;
 	}
 }
 
@@ -455,11 +457,6 @@ header {
 		@include flex-direction(row);
 		@include align-items(center);
 		border-bottom: 1px solid rgba(0, 0, 0, 0.075);
-
-		img {
-			height: 26px;
-			margin: 0 18px;
-		}
 	}
 
 	.open-nav {
@@ -471,6 +468,9 @@ header {
 		position: absolute;
 		border-radius: 2px;
 		cursor: pointer;
+		right: 20px;
+		width: 24px;
+		height: 24px;
 
 		&:focus {
 			outline: none;
@@ -482,7 +482,7 @@ header {
 		}
 	}
 
-	@media (min-width: $mobile-break) {
+	@media (min-width: #{$mobile-break + 1}) {
 		background-color: transparent;
 		width: $nav-width;
 		right: auto;

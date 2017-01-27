@@ -1,26 +1,8 @@
 header {
-
   h1 {
-    $shade: transparent;
-
-    background: $shade;
+    background: transparent;
   }
   h1 > a {
-    $color: black;
-    $contrast: red;
-
-    padding: 0 20px;
-    color: $color;
-    font-size: 1.5em;
-    font-weight: initial;
-    letter-spacing: 1px;
-
-    &:first-letter {
-      color: $contrast;
-    }
-    &:hover {
-      text-decoration: none;
-      color: lighten($color, 20%);
-    }
+    margin: 0 20px;
   }
 }
