@@ -17,10 +17,10 @@ right_code: |
   {: title="Error" }
 ---
 original_id
-: Client internal photo id
+: Client internal photo ID
 
 url
-: Client photo url
+: Client photo URL
 
 <!-- This call will return a maximum of 100 books
 {: .info } -->

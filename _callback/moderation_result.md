@@ -1,7 +1,7 @@
 ---
 title: Moderation Result
 position: 1
-description: Arbitrum server send moderation result to callback URL provided by the client
+description: Arbitrum server sends moderation result to callback URL provided by the client
 ---
 original_id
 : Client internal listing ID

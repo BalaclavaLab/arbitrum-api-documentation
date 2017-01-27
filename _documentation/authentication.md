@@ -3,8 +3,10 @@ title: Authentication
 position: 2
 right_code: |
   ~~~ bash
-  curl -X POST -H "X-Auth-Token: YOUR_TOKEN" -d '{...}' \
-    https://gateway.arbitrum.com/v1/content/listing
+  curl -X POST -d '{...}'
+    -H 'X-Auth-Token: ARBITRUM_AUTH_TOKEN'
+    -H 'Content-Type: application/json'
+    'https://gateway.arbitrum.com/v1/content/listing'
   ~~~
   {: title="Curl" }
 ---
