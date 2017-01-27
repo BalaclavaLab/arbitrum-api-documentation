@@ -1,5 +1,5 @@
 ---
-title: POST /content/photo
+title: /content/photo
 position: 2
 type: post
 description: Submit photo to Arbitrum server

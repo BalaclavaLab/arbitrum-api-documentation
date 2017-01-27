@@ -1,5 +1,5 @@
 ---
-title: POST /content/listing
+title: /content/listing
 position: 1
 type: post
 description: Submit marketplace listing to Arbitrum server
