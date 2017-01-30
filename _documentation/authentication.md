@@ -14,8 +14,8 @@ right_code: |
 
   ~~~ bash
   curl -X POST -d '{...}'
-    -H 'X-Auth-Token: ARBITRUM_AUTH_TOKEN'
     -H 'Content-Type: application/json'
+    -H 'X-Auth-Token: ARBITRUM_AUTH_TOKEN'
     'https://gateway.arbitrum.com/v1/content/listing'
   ~~~
   {: title="Curl" }
@@ -24,7 +24,9 @@ right_code: |
   require 'net/https'
 
   uri = URI('https://gateway.arbitrum.com/v1/content/listing')
-  Net::HTTP.post uri, '{...}', 'Content-Type' => 'application/json'
+  Net::HTTP.post uri, '{...}',
+    'Content-Type' => 'application/json',
+    'X-Auth-Token' => 'ARBITRUM_AUTH_TOKEN'
   ~~~
   {: title="Ruby" }
 ---
