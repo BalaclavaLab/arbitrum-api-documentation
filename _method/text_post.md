@@ -22,8 +22,6 @@ right_code: |
 text
 : Text for moderation
 
-{: .info }
-
 ~~~ http
 POST /v1/text HTTP/1.1
 Host: text.arbitrum.com
@@ -51,4 +49,3 @@ or
   "result": "abusive"
 }
 ~~~
-{: .info }
