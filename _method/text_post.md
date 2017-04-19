@@ -4,8 +4,16 @@ position: 2
 type: post
 description: Submit text to Arbitrum server
 right_code: |
-  ~~~ http
-  HTTP/1.1 200 OK
+  ~~~ json
+  {
+    "result": "non_abusive"
+  }
+  ~~~
+  
+  ~~~ json
+  {
+    "result": "abusive"
+  }
   ~~~
   {: title="Response" }
 
@@ -33,19 +41,3 @@ X-Auth-Token: ARBITRUM_AUTH_TOKEN
 }
 ~~~
 {: title="HTTPS" }
-
-Server response:
-
-~~~ json
-{
-  "result": "non_abusive"
-}
-~~~
-
-or
-
-~~~ json
-{
-  "result": "abusive"
-}
-~~~
