@@ -36,7 +36,7 @@ X-Auth-Token: ARBITRUM_AUTH_TOKEN
 
 Server response:
 
-~~~ http
+~~~ json
 {
   "result": "non_abusive"
 }
@@ -44,7 +44,7 @@ Server response:
 
 or
 
-~~~ http
+~~~ json
 {
   "result": "abusive"
 }
