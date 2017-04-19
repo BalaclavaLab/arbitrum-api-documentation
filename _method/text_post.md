@@ -9,12 +9,6 @@ right_code: |
     "result": "non_abusive"
   }
   ~~~
-  
-  ~~~ json
-  {
-    "result": "abusive"
-  }
-  ~~~
   {: title="Response" }
 
   ~~~ http
