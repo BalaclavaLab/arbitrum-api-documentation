@@ -66,6 +66,12 @@ photos
 avatar_photo_id
 : Profile avatar photo id (photo in photos collection)
 
+registration_ip
+: Profile registration ip
+
+usage_ip
+: Profile usage ip
+
 created_time
 : Profile created time in milliseconds
 
@@ -98,6 +104,8 @@ X-Auth-Token: ARBITRUM_AUTH_TOKEN
     {"id": "profile.photoId2", "url": "http://profile.photo.id2.url"}
   ],
   "avatar_photo_id": "profile.photoId1",
+  "registration_ip": "profile.registrationIp",
+  "usage_ip": "profile.usageIp",
   "created_time": 1484572111142
 }
 ~~~
