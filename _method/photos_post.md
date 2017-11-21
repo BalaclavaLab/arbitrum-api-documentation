@@ -12,12 +12,22 @@ right_code: |
   ~~~ http
   HTTP/1.1 400 Bad Request
   Content-Type: application/json
-
+  
   {
     "error": "Insufficient parameters"
   }
   ~~~
-  {: title="Error" }
+  {: title="Error 400" }
+ 
+  ~~~ http
+  HTTP/1.1 403 Forbidden
+  Content-Type: application/json
+
+  {
+    "error": "Authentication token is invalid"
+  }
+  ~~~
+  {: title="Error 403" }
 ---
 original_id
 : Client internal photo ID

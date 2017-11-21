@@ -10,6 +10,16 @@ right_code: |
   {: title="Response" }
 
   ~~~ http
+  HTTP/1.1 400 Bad Request
+  Content-Type: application/json
+  
+  {
+    "error": "Insufficient parameters"
+  }
+  ~~~
+  {: title="Error 400" }
+ 
+  ~~~ http
   HTTP/1.1 403 Forbidden
   Content-Type: application/json
 
@@ -17,7 +27,7 @@ right_code: |
     "error": "Authentication token is invalid"
   }
   ~~~
-  {: title="Error" }
+  {: title="Error 403" }
 ---
 original_id
 : Client internal listing ID
