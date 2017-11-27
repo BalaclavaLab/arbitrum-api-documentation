@@ -82,7 +82,7 @@ Example of a valid request:
 <!-- Lists all the photos you have access to. You can paginate by using the parameters listed above. -->
 
 ~~~ http
-POST /v1/content/profiles HTTP/1.1
+POST /v3/content/profiles HTTP/1.1
 Host: gateway.arbitrum.com
 Content-Type: application/json
 X-Auth-Token: ARBITRUM_AUTH_TOKEN

@@ -1,8 +1,8 @@
 ---
-title: /content/photos
-position: 2
+title: /content/ads
+position: 1
 type: post
-description: Submit photo to Arbitrum server
+description: Submit ad to Arbitrum server
 right_code: |
   ~~~ http
   HTTP/1.1 200 OK
@@ -29,11 +29,24 @@ right_code: |
   ~~~
   {: title="Error 403" }
 ---
-original_id
-: Client internal photo ID
 
-url
-: Client photo URL
+ad_id
+: Client internal ad ID
+
+categories
+: Array of ad categories
+
+click_url
+: Expected ad click url
+
+content
+: Ad or creative url
+
+device
+: Device for which ad will be served
+
+location
+: Location from which ad will be served
 
 <!-- This call will return a maximum of 100 books
 {: .info } -->
@@ -42,26 +55,31 @@ Example of a valid request:
 <!-- Lists all the photos you have access to. You can paginate by using the parameters listed above. -->
 
 ~~~ http
-POST /v3/content/photos HTTP/1.1
+POST /v3/content/ads HTTP/1.1
 Host: gateway.arbitrum.com
 Content-Type: application/json
 X-Auth-Token: ARBITRUM_AUTH_TOKEN
 
 {
-  "original_id": "client.photo.id",
-  "url": "http://client.photo.id1.url"
+  "ad_id": "ad.id",
+  "categories": ["ad.category1", "ad.category2"]
+  "click_url": "ad.clickUrl",
+  "content": "ad.url",
+  "device": "ad.device",
+  "location": "ad.location"
 }
 ~~~
 {: title="HTTPS" }
 
-After submission, photo is processed by Arbitrum:
+After submission, profile is processed by Arbitrum:
 
-1. all incoming photos are added into processing queue;
-2. photo is downloaded and uploaded to Arbitrum storage;
+1. all incoming profile are added into processing queue;
+2. profile photos are downloaded and uploaded to Arbitrum storage;
 3. automatic moderation step (algorithms);
 4. manual moderation step (humans);
 5. processing moderation result (collecting client statistics, creating historical record);
 6. sending response to client via [callback](/#/callback/moderation_result).
+
 
 It is client's responsibility to setup and configure their HTTP server that accepts and
 handles the callback.

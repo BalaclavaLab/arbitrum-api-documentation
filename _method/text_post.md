@@ -39,7 +39,7 @@ text
 Example of a valid request:
 
 ~~~ http
-POST /v1/text HTTP/1.1
+POST /v3/text HTTP/1.1
 Host: text.arbitrum.com
 Content-Type: application/json
 X-Auth-Token: ARBITRUM_AUTH_TOKEN
