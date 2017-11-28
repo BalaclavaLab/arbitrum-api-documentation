@@ -10,6 +10,46 @@ right_code: |
   {: title="Response" }
 
   ~~~ http
+  POST /callback HTTP/1.1
+  Host: client.api.com
+  Content-Type: application/json
+  X-Auth-Token: ARBITRUM_AUTH_TOKEN
+  
+  {
+    "ad_id": "ad.id",
+    "result": "non_abusive"
+  }
+  ~~~
+  {: title="Callback1" }
+  
+  ~~~ http
+  POST /callback HTTP/1.1
+  Host: client.api.com
+  Content-Type: application/json
+  X-Auth-Token: ARBITRUM_AUTH_TOKEN
+  
+  {
+    "ad_id": "ad.id",
+    "result": "abusive"
+  }
+  ~~~
+  {: title="Callback2" }
+
+  ~~~ http
+  POST /callback HTTP/1.1
+  Host: client.api.com
+  Content-Type: application/json
+  X-Auth-Token: ARBITRUM_AUTH_TOKEN
+  
+  {
+    "ad_id": "ad.id",
+    "result": "change_category",
+    "categories": ["category1", "category2"]
+  }
+  ~~~
+  {: title="Callback3" }
+  
+  ~~~ http
   HTTP/1.1 400 Bad Request
   Content-Type: application/json
   
