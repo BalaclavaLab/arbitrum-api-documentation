@@ -17,7 +17,7 @@ right_code: |
   
   {
     "ad_id": "ad.id",
-    "result": "non_abusive"
+    "result": "approved"
   }
   ~~~
   {: title="Callback1" }
@@ -30,7 +30,7 @@ right_code: |
   
   {
     "ad_id": "ad.id",
-    "result": "abusive"
+    "result": "rejected"
   }
   ~~~
   {: title="Callback2" }
@@ -44,7 +44,7 @@ right_code: |
   {
     "ad_id": "ad.id",
     "result": "change_category",
-    "categories": ["category1", "category2"]
+    "categories": "ad.newCategory"
   }
   ~~~
   {: title="Callback3" }
@@ -102,7 +102,7 @@ X-Auth-Token: ARBITRUM_AUTH_TOKEN
 
 {
   "ad_id": "ad.id",
-  "categories": ["ad.category1", "ad.category2"]
+  "categories": ["ad.category1", "ad.category2"],
   "click_url": "ad.clickUrl",
   "content": "ad.url",
   "device": "ad.device",
