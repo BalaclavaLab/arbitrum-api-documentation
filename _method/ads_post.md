@@ -45,8 +45,8 @@ content
 device
 : Device for which ad will be served
 
-location
-: Location from which ad will be served
+country
+: Country from which ad will be served
 
 <!-- This call will return a maximum of 100 books
 {: .info } -->
@@ -66,15 +66,15 @@ X-Auth-Token: ARBITRUM_AUTH_TOKEN
   "click_url": "ad.clickUrl",
   "content": "ad.url",
   "device": "ad.device",
-  "location": "ad.location"
+  "country": "ad.country"
 }
 ~~~
 {: title="HTTPS" }
 
-After submission, profile is processed by Arbitrum:
+After submission, ad is processed by Arbitrum:
 
-1. all incoming profile are added into processing queue;
-2. profile photos are downloaded and uploaded to Arbitrum storage;
+1. all incoming ads are added into processing queue;
+2. ad creatives are downloaded and uploaded to Arbitrum storage;
 3. automatic moderation step (algorithms);
 4. manual moderation step (humans);
 5. processing moderation result (collecting client statistics, creating historical record);
