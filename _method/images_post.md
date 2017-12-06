@@ -1,8 +1,8 @@
 ---
-title: /content/photos
+title: /content/images
 position: 2
 type: post
-description: Submit photo to Arbitrum server
+description: Submit image to Arbitrum server
 right_code: |
   ~~~ http
   HTTP/1.1 200 OK
@@ -30,34 +30,34 @@ right_code: |
   {: title="Error 403" }
 ---
 original_id
-: Client internal photo ID
+: Client internal image ID
 
 url
-: Client photo URL
+: Client image URL
 
 <!-- This call will return a maximum of 100 books
 {: .info } -->
 
 Example of a valid request:
-<!-- Lists all the photos you have access to. You can paginate by using the parameters listed above. -->
+<!-- Lists all the images you have access to. You can paginate by using the parameters listed above. -->
 
 ~~~ http
-POST /v3/content/photos HTTP/1.1
+POST /v3/content/images HTTP/1.1
 Host: gateway.arbitrum.com
 Content-Type: application/json
 X-Auth-Token: ARBITRUM_AUTH_TOKEN
 
 {
-  "original_id": "client.photo.id",
-  "url": "http://client.photo.id1.url"
+  "original_id": "client.image.id",
+  "url": "http://client.image.id1.url"
 }
 ~~~
 {: title="HTTPS" }
 
-After submission, photo is processed by Arbitrum:
+After submission, image is processed by Arbitrum:
 
-1. all incoming photos are added into processing queue;
-2. photo is downloaded and uploaded to Arbitrum storage;
+1. all incoming images are added into processing queue;
+2. image is downloaded and uploaded to Arbitrum storage;
 3. automatic moderation step (algorithms);
 4. manual moderation step (humans);
 5. processing moderation result (collecting client statistics, creating historical record);
