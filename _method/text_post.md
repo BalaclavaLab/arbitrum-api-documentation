@@ -1,6 +1,6 @@
 ---
 title: /content/text
-position: 2
+position: 1
 type: post
 description: Submit text to Arbitrum server
 right_code: |

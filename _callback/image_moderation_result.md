@@ -1,13 +1,16 @@
 ---
-title: Moderation Result
+title: Image Moderation Result
 position: 1
 description: Arbitrum server sends moderation result to callback URL provided by the client
 ---
-original_id
-: Client internal listing ID
+id
+: Arbitrum internal moderated content ID
 
-moderation_result
-: Either **rejected** or **approved**
+original_id
+: Client internal image ID
+
+result
+: Either **abusive** or **non_abusive**
 
 Example of a valid callback request:
 
@@ -18,11 +21,12 @@ Content-Type: application/json
 X-Auth-Token: CLIENT_AUTH_TOKEN
 
 {
-  "original_id": "client.content.id",
-  "moderation_result": "rejected"
+  "id": "arbitrum.content.id",
+  "original_id": "client.image.id",
+  "result": "abusive"
 }
 ~~~
-{: title="HTTP(S)" }
+{: title="HTTPS" }
 
 The server expects `HTTP 2xx` response without any body. Any other response code
 will be treated as an error.

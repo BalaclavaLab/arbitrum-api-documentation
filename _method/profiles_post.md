@@ -8,6 +8,54 @@ right_code: |
   HTTP/1.1 200 OK
   ~~~
   {: title="Response" }
+  
+  ~~~ http
+  POST /webhook HTTP/1.1
+  Host: www.client.url
+  Content-Type: application/json
+  X-Auth-Token: CLIENT_AUTH_TOKEN
+  
+  {
+    "id": "arbitrum.content.id",
+    "original_id": "client.profile.id",
+    "result": "abusive"
+  }
+  ~~~
+  {: title="Callback1" }
+  
+  ~~~ http
+  POST /webhook HTTP/1.1
+  Host: www.client.url
+  Content-Type: application/json
+  X-Auth-Token: CLIENT_AUTH_TOKEN
+  
+  {
+    "id": "arbitrum.content.id",
+    "original_id": "client.profile.id",
+    "moderation_result": "non_abusive_needs_changes",
+    "details": {
+      "images.client_image_id" : "to_be_removed" 
+    }
+  }
+  ~~~
+  {: title="Callback2" }
+  
+  ~~~ http
+  POST /webhook HTTP/1.1
+  Host: www.client.url
+  Content-Type: application/json
+  X-Auth-Token: CLIENT_AUTH_TOKEN
+  
+  {
+    "id": "arbitrum.content.id",
+    "original_id": "client.profile.id",
+    "result": "non_abusive_needs_changes",
+    "details": {
+      "images.client_image_id" : "set_as_profile" 
+    }
+  }
+  ~~~
+  {: title="Callback3" }
 
   ~~~ http
   HTTP/1.1 400 Bad Request
@@ -118,7 +166,7 @@ After submission, profile is processed by Arbitrum:
 3. automatic moderation step (algorithms);
 4. manual moderation step (humans);
 5. processing moderation result (collecting client statistics, creating historical record);
-6. sending response to client via [callback](/#/callback/moderation_result).
+6. sending response to client via [callback](/#/callback/profile_moderation_result).
 
 
 It is client's responsibility to setup and configure their HTTP server that accepts and

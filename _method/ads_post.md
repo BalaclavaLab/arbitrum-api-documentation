@@ -16,8 +16,10 @@ right_code: |
   X-Auth-Token: ARBITRUM_AUTH_TOKEN
   
   {
-    "ad_id": "ad.id",
-    "result": "approved"
+    "id": "arbitrum.content.id",
+    "original_id": "client.ad.id",
+    "result": "non_abusive",
+    "has_https": "true"
   }
   ~~~
   {: title="Callback1" }
@@ -29,8 +31,10 @@ right_code: |
   X-Auth-Token: ARBITRUM_AUTH_TOKEN
   
   {
-    "ad_id": "ad.id",
-    "result": "rejected"
+    "id": "arbitrum.content.id",
+    "original_id": "client.ad.id",
+    "result": "abusive",
+    "has_https": "true"
   }
   ~~~
   {: title="Callback2" }
@@ -42,9 +46,11 @@ right_code: |
   X-Auth-Token: ARBITRUM_AUTH_TOKEN
   
   {
-    "ad_id": "ad.id",
-    "result": "change_category",
-    "categories": "ad.newCategory"
+    "id": "arbitrum.content.id",
+    "original_id": "client.ad.id",
+    "result": "non_abusive_needs_changes",
+    "iab_category": "ad.newIabCategory",
+    "has_https": "true"
   }
   ~~~
   {: title="Callback3" }
@@ -88,6 +94,9 @@ device
 country
 : Country from which ad will be served
 
+iab_category
+: IAB category code
+
 <!-- This call will return a maximum of 100 books
 {: .info } -->
 
@@ -106,7 +115,8 @@ X-Auth-Token: ARBITRUM_AUTH_TOKEN
   "click_url": "ad.clickUrl",
   "content": "ad.url",
   "device": "ad.device",
-  "country": "ad.country"
+  "country": "ad.country",
+  "iab_category": "ad.iab_category"
 }
 ~~~
 {: title="HTTPS" }
@@ -118,7 +128,7 @@ After submission, ad is processed by Arbitrum:
 3. automatic moderation step (algorithms);
 4. manual moderation step (humans);
 5. processing moderation result (collecting client statistics, creating historical record);
-6. sending response to client via [callback](/#/callback/moderation_result).
+6. sending response to client via [callback](/#/callback/ad_moderation_result).
 
 
 It is client's responsibility to setup and configure their HTTP server that accepts and
