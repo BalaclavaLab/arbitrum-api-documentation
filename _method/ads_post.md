@@ -79,9 +79,6 @@ right_code: |
 ad_id
 : Client internal ad ID
 
-categories
-: Array of ad categories
-
 click_url
 : Expected ad click url
 
@@ -111,7 +108,6 @@ X-Auth-Token: ARBITRUM_AUTH_TOKEN
 
 {
   "ad_id": "ad.id",
-  "categories": ["ad.category1", "ad.category2"],
   "click_url": "ad.clickUrl",
   "content": "ad.url",
   "device": "ad.device",
