@@ -10,7 +10,7 @@ original_id
 : Client internal advertisement ID
 
 result
-: Either **abusive**, **non_abusive**, **non_abusive_needs_changes**
+: Either **Rejected**, **Approved**, **Modified**
 
 iab_category
 : `IAB` category proposed by Arbitrum, optional field
@@ -29,7 +29,7 @@ X-Auth-Token: CLIENT_AUTH_TOKEN
 {
   "id": "arbitrum.content.id",
   "original_id": "client.ad.id",
-  "result": "abusive",
+  "result": "Rejected",
   "has_https": "true"
 }
 ~~~
@@ -45,7 +45,7 @@ X-Auth-Token: CLIENT_AUTH_TOKEN
 {
   "id": "arbitrum.content.id",
   "original_id": "client.ad.id",
-  "result": "non_abusive_needs_changes",
+  "result": "Modified",
   "iab_category": "ad.newIabCategory",
   "has_https": "true"
 }

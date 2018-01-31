@@ -18,7 +18,7 @@ right_code: |
   {
     "id": "arbitrum.content.id",
     "original_id": "client.image.id",
-    "result": "abusive"
+    "result": "Rejected"
   }
   ~~~
   {: title="Callback" }

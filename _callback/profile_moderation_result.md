@@ -10,10 +10,10 @@ original_id
 : Client internal profile ID
 
 result
-: Either **abusive**, **non_abusive**, **non_abusive_needs_changes**
+: Either **Rejected**, **Approved**, **Modified**
 
 details
-: Mapping from original profile image to Arbitrum classification, a way for Arbitrum to provide specific moderation details, optional field. Only valid in combination with `moderation_result` **non_abusive_needs_changes**. 
+: Mapping from original profile image to Arbitrum classification, a way for Arbitrum to provide specific moderation details, optional field. Only valid in combination with `moderation_result` **Modified**. 
 Possible values: **to_be_removed**, **set_as_profile**
 
 Example 1 of a valid callback request:
@@ -27,7 +27,7 @@ X-Auth-Token: CLIENT_AUTH_TOKEN
 {
   "id": "arbitrum.content.id",
   "original_id": "client.profile.id",
-  "result": "abusive"
+  "result": "Rejected"
 }
 ~~~
 
@@ -42,7 +42,7 @@ X-Auth-Token: CLIENT_AUTH_TOKEN
 {
   "id": "arbitrum.content.id",
   "original_id": "client.profile.id",
-  "moderation_result": "non_abusive_needs_changes",
+  "moderation_result": "Modified",
   "details": {
     "images.client_image_id" : "to_be_removed" 
   }
@@ -60,7 +60,7 @@ X-Auth-Token: CLIENT_AUTH_TOKEN
 {
   "id": "arbitrum.content.id",
   "original_id": "client.profile.id",
-  "result": "non_abusive_needs_changes",
+  "result": "Modified",
   "details": {
     "images.client_image_id" : "set_as_profile" 
   }

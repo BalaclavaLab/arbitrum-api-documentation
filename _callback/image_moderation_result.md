@@ -10,7 +10,7 @@ original_id
 : Client internal image ID
 
 result
-: Either **abusive** or **non_abusive**
+: Either **Rejected** or **Approved**
 
 Example of a valid callback request:
 
@@ -23,7 +23,7 @@ X-Auth-Token: CLIENT_AUTH_TOKEN
 {
   "id": "arbitrum.content.id",
   "original_id": "client.image.id",
-  "result": "abusive"
+  "result": "Rejected"
 }
 ~~~
 {: title="HTTPS" }

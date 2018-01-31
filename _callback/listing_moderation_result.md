@@ -10,7 +10,7 @@ original_id
 : Client internal listing ID
 
 result
-: Either **abusive**, **non_abusive**
+: Either **Rejected**, **Approved**
 
 Example of a valid callback request:
 
@@ -23,7 +23,7 @@ X-Auth-Token: CLIENT_AUTH_TOKEN
 {
   "id": "arbitrum.content.id",
   "original_id": "client.listing.id",
-  "result": "abusive"
+  "result": "Rejected"
 }
 ~~~
 {: title="HTTPS" }

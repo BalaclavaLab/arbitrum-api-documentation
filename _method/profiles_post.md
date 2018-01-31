@@ -18,7 +18,7 @@ right_code: |
   {
     "id": "arbitrum.content.id",
     "original_id": "client.profile.id",
-    "result": "abusive"
+    "result": "Rejected"
   }
   ~~~
   {: title="Callback1" }
@@ -32,7 +32,7 @@ right_code: |
   {
     "id": "arbitrum.content.id",
     "original_id": "client.profile.id",
-    "moderation_result": "non_abusive_needs_changes",
+    "moderation_result": "Modified",
     "details": {
       "images.client_image_id" : "to_be_removed" 
     }
@@ -49,7 +49,7 @@ right_code: |
   {
     "id": "arbitrum.content.id",
     "original_id": "client.profile.id",
-    "result": "non_abusive_needs_changes",
+    "result": "Modified",
     "details": {
       "images.client_image_id" : "set_as_profile" 
     }

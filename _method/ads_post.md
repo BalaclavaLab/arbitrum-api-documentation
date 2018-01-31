@@ -18,7 +18,7 @@ right_code: |
   {
     "id": "arbitrum.content.id",
     "original_id": "client.ad.id",
-    "result": "non_abusive",
+    "result": "Approved",
     "has_https": "true"
   }
   ~~~
@@ -33,7 +33,7 @@ right_code: |
   {
     "id": "arbitrum.content.id",
     "original_id": "client.ad.id",
-    "result": "abusive",
+    "result": "Rejected",
     "has_https": "true"
   }
   ~~~
@@ -48,7 +48,7 @@ right_code: |
   {
     "id": "arbitrum.content.id",
     "original_id": "client.ad.id",
-    "result": "non_abusive_needs_changes",
+    "result": "Modified",
     "iab_category": "ad.newIabCategory",
     "has_https": "true"
   }

@@ -8,7 +8,7 @@ right_code: |
   HTTP/1.1 200 OK
   
   {
-    "result": "non_abusive"
+    "result": "Approved"
   }
   ~~~
   {: title="Response" }
